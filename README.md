@@ -24,24 +24,24 @@ This starts a local Kubernetes cluster.
 - Write a Deployment Configuration File (deployment.yml):
 
  apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-app-deployment
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: my-app
-  template:
-    metadata:
-      labels:
+ kind: Deployment
+  metadata:
+   name: my-app-deployment
+  spec:
+     replicas: 2
+     selector:
+       matchLabels:
         app: my-app
-    spec:
-      containers:
-      - name: my-app
-        image:  amanuddinu4/nodejs-demo-app
-        ports:
-        - containerPort: 80
+         template:
+               metadata:
+                 labels:
+             app: my-app
+              spec:
+               containers:
+                 - name: my-app
+                  image:  amanuddinu4/nodejs-demo-app
+                   ports:
+                    - containerPort: 80
   
 - Apply the Deployment:
   kubectl apply -f deployment.yaml
