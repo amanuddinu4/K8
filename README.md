@@ -44,10 +44,10 @@ spec:<br>
         - containerPort: 80<br>
 
   
-- Apply the Deployment:
-  kubectl apply -f deployment.yaml
+- Apply the Deployment:<br>
+  kubectl apply -f deployment.yaml<br>
 
-3. Expose the App as a Service
+3. Expose the App as a Service<br>
 Write a Service Configuration File (service.yml):<br>
 
 apiVersion: v1<br>
@@ -63,26 +63,26 @@ spec:<br>
     targetPort: 80<br>
   type: NodePort<br>
 
-- Apply the Service:
-  kubectl apply -f service.yaml
-4. Verify Pods
-  To check the status of your running pods:
-kubectl get pods
+- Apply the Service:<br>
+  kubectl apply -f service.yaml<br>
+4. Verify Pods<br>
+  To check the status of your running pods:<br>
+kubectl get pods<br>
 
-5. Scale Deployments
-   To scale the deployment to 5 replicas:
-   kubectl scale deployment my-app-deployment --replicas=5
+5. Scale Deployments<br>
+   To scale the deployment to 5 replicas:<br>
+   kubectl scale deployment my-app-deployment --replicas=2<br>
    
-   Verify the updated pod count:
-   kubectl get pods
+   Verify the updated pod count:<br>
+   kubectl get pods<br>
    
-6. Troubleshoot Pods Using Logs
-Use kubectl describe for Pod Details:
-kubectl describe pod <pod-name>
-View Application Logs:
-kubectl logs <pod-name>
-For pods with multiple containers:
-kubectl logs <pod-name> -c <container-name>   
+6. Troubleshoot Pods Using Logs<br>
+Use kubectl describe for Pod Details:<br>
+kubectl describe pod <pod-name><br>
+View Application Logs:<br>
+kubectl logs <pod-name><br>
+For pods with multiple containers:<br>
+kubectl logs <pod-name> -c <container-name> <br>  
   
 
 
