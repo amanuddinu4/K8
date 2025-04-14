@@ -21,46 +21,46 @@ Steps to Build the Cluster
 This starts a local Kubernetes cluster.
 
 2. Create a Deployment
-- Write a Deployment Configuration File (deployment.yml):
+- Write a Deployment Configuration File (deployment.yml):<br>
+apiVersion: apps/v1<br>
+kind: Deployment<br>
+metadata:<br>
+  name: my-app-deployment<br>
+spec:<br>
+  replicas: 2<br>
+  selector:<br>
+    matchLabels:<br>
+      app: my-app<br>
+  template:<br>
+    metadata:<br>
+      labels:<br>
+        app: my-app<br>
+    spec:<br>
+      containers:<br>
+      - name: my-app<br>
+        image: nginx<br>
+        ports:<br>
+        - containerPort: 80<br>
 
- apiVersion: apps/v1
- kind: Deployment
-  metadata:
-   name: my-app-deployment
-  spec:
-     replicas: 2
-     selector:
-       matchLabels:
-        app: my-app
-         template:
-               metadata:
-                 labels:
-             app: my-app
-              spec:
-               containers:
-                 - name: my-app
-                  image:  amanuddinu4/nodejs-demo-app
-                   ports:
-                    - containerPort: 80
   
 - Apply the Deployment:
   kubectl apply -f deployment.yaml
 
 3. Expose the App as a Service
-Write a Service Configuration File (service.yml):
+Write a Service Configuration File (service.yml):<br>
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-app-service
-spec:
-  selector:
-    app: my-app
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: NodePort
+apiVersion: v1<br>
+kind: Service<br>
+metadata:<br>
+  name: my-app-service<br>
+spec:<br>
+  selector:<br>
+    app: my-app<br>
+  ports:<br>
+  - protocol: TCP<br>
+    port: 80<br>
+    targetPort: 80<br>
+  type: NodePort<br>
 
 - Apply the Service:
   kubectl apply -f service.yaml
