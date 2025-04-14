@@ -22,6 +22,7 @@ This starts a local Kubernetes cluster.
 
 2. Create a Deployment
 - Write a Deployment Configuration File (deployment.yml):<br>
+<br>
 apiVersion: apps/v1<br>
 kind: Deployment<br>
 metadata:<br>
